@@ -46,6 +46,12 @@ class MainActivity : AppCompatActivity() {
                 intent.data = Uri.parse("https://www.google.com")
                 startActivity(intent)
             }
+
+            btnOpenMaps.setOnClickListener {
+                val intent = Intent(Intent.ACTION_VIEW)
+                intent.data = Uri.parse("geo:47.6,-122.3?z=11") // Bisa diisi dengan URL Google Maps atau koordinat
+                startActivity(intent)
+            }
         }
     }
 
@@ -70,6 +76,7 @@ class MainActivity : AppCompatActivity() {
         Log.d(TAG, "onStop: dipanggil")
     }
 
+    // onDestroy akan muncul pada logcat ketika kita menggunakan metode finish() atau kita menutup activity
     override fun onDestroy() {
         super.onDestroy()
         Log.d(TAG, "onDestroy: dipanggil")
